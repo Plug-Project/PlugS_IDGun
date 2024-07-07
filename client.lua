@@ -82,7 +82,9 @@ end)
 
 -- Creating the command.
 RegisterCommand("idgunCopy", function()
-    if infoOn then
-        idGunS.getIds({"Coordinates: " .. coordsText .. "\nHeading: " .. headingText .. "\nHash: " .. modelText})
-    end
+    idGunS.getPermission({}, function(result)
+        if result and infoOn then
+            idGunS.getIds({"Coordinates: " .. coordsText .. "\nHeading: " .. headingText .. "\nHash: " .. modelText})
+        end
+    end)
 end)
