@@ -73,8 +73,10 @@ end                                     -- Ending the function here.
 
 -- Creating the command.
 RegisterCommand("idgun", function()
-    idGunS.getPermission({}, function()
-        ToggleInfos()
+    idGunS.getPermission({}, function(result)
+        if result then
+            ToggleInfos()
+        end
     end)
 end)
 
